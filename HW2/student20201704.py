@@ -59,7 +59,7 @@ for r in range(len(total)):
 			i += 1
 		else:
 			i = 0
-	#elif len(dou[i]) / len(total) < 1 and rank / len(total) < 1		
+				
 	else:
 		ws['H' + str(row)].value = 'C'
 		C.append(list1[i])
@@ -74,28 +74,28 @@ for r in range(len(total)):
 j=0
 m=0
 n=0
-print(A)###
-print(B)###
-print(C)###
 
-for r in range(len(A)):
+for r in range(int(len(A)/2)):
 	rowA = total.index(A[j]) + 2
 	rankA = A.index(A[j]) + 1
-	if rankA / len(A) < 0.5:
+	
+	if A[j] != A[j+1]:
 		ws['H' + str(rowA)].value = 'A+'
 	j += 1
 	
-for r in range(len(B)):
+for r in range(int(len(B)/2)):
 	rowB = total.index(B[m]) + 2
 	rankB = B.index(B[j]) + 1
-	if rankB / len(B) < 0.5:
+	
+	if B[m] != B[m+1]:
 		ws['H' + str(rowB)].value = 'B+'
 	m += 1
 	
-for r in range(len(C)):
+for r in range(int(len(C)/2)):
 	rowC = total.index(C[n]) + 2
 	rankC = C.index(C[j]) + 1
-	if rankC / len(C) < 0.5:
+	
+	if C[n] != C[n+1]:
 		ws['H' + str(rowC)].value = 'C+'
 	n += 1
 	
