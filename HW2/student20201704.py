@@ -45,7 +45,7 @@ for r in range(len(total)):
 	row = total.index(list1[i]) + 2
 	
 	if len(list1) <= len(total)*0.3 and rank <= len(total)*0.3:
-		ws['H' + str(row)].value = 'A'
+		ws['H' + str(row)].value = 'A0'
 		A.append(list1[i])
 		if len(dou[i]) == i:
 			i += 1
@@ -53,7 +53,7 @@ for r in range(len(total)):
 			i = 0
 		
 	elif len(list1) <= len(total)*0.7 and rank <= len(total)*0.7:
-		ws['H' + str(row)].value = 'B'
+		ws['H' + str(row)].value = 'B0'
 		B.append(list1[i])
 		if len(dou[i]) == i:
 			i += 1
@@ -61,7 +61,7 @@ for r in range(len(total)):
 			i = 0
 				
 	else:
-		ws['H' + str(row)].value = 'C'
+		ws['H' + str(row)].value = 'C0'
 		C.append(list1[i])
 		if len(dou[i]) == i:
 			i += 1
