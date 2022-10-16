@@ -44,7 +44,7 @@ for r in range(len(total)):
 	rank = list1.index(list1[i]) + 1 + k 
 	row = total.index(list1[i]) + 2
 	
-	if rank <= len(total)*0.3:
+	if len(list1) <= len(total)*0.3 and rank <= len(total)*0.3:
 		ws['H' + str(row)].value = 'A'
 		A.append(list1[i])
 		if len(dou[i]) == i:
@@ -52,7 +52,7 @@ for r in range(len(total)):
 		else:
 			i = 0
 		
-	elif rank <= len(total)*0.7:
+	elif len(list1) <= len(total)*0.7 and rank <= len(total)*0.7:
 		ws['H' + str(row)].value = 'B'
 		B.append(list1[i])
 		if len(dou[i]) == i:
@@ -75,27 +75,27 @@ j=0
 m=0
 n=0
 
-for r in range(int(len(A)/2)):
+for r in range(len(A)):
 	rowA = total.index(A[j]) + 2
 	rankA = A.index(A[j]) + 1
 	
-	if A[j] != A[j+1]:
+	if rankA <= len(A)*0.5:
 		ws['H' + str(rowA)].value = 'A+'
 	j += 1
-	
-for r in range(int(len(B)/2)):
+
+for r in range(len(B)):
 	rowB = total.index(B[m]) + 2
-	rankB = B.index(B[j]) + 1
+	rankB = B.index(B[m]) + 1
 	
-	if B[m] != B[m+1]:
+	if rankB <= len(B)*0.5:
 		ws['H' + str(rowB)].value = 'B+'
 	m += 1
 	
-for r in range(int(len(C)/2)):
+for r in range(len(C)):
 	rowC = total.index(C[n]) + 2
-	rankC = C.index(C[j]) + 1
+	rankC = C.index(C[n]) + 1
 	
-	if C[n] != C[n+1]:
+	if rankC <= len(C)*0.5:
 		ws['H' + str(rowC)].value = 'C+'
 	n += 1
 	
