@@ -40,11 +40,11 @@ for r in range(len(total)):
 	list1 = []
 	for c in range(len(dou[r])):
 		list1.append(dou[r][c])	
-
+	
 	rank = list1.index(list1[i]) + 1 + k 
 	row = total.index(list1[i]) + 2
 	
-	if dou_student_num / len(reverse) < 0.3 and rank / len(reverse) < 0.3:
+	if rank <= len(total)*0.3:
 		ws['H' + str(row)].value = 'A'
 		A.append(list1[i])
 		if len(dou[i]) == i:
@@ -52,7 +52,7 @@ for r in range(len(total)):
 		else:
 			i = 0
 		
-	elif dou_student_num / len(reverse) < 0.7 and rank / len(reverse) < 0.7:
+	elif rank <= len(total)*0.7:
 		ws['H' + str(row)].value = 'B'
 		B.append(list1[i])
 		if len(dou[i]) == i:
@@ -70,7 +70,7 @@ for r in range(len(total)):
 			
 	k += 1
 	dou_student_num += len(dou[i])
-		
+	
 j=0
 m=0
 n=0
