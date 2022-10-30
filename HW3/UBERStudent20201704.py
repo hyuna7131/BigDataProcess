@@ -18,8 +18,8 @@ with open(input_file, 'rt') as f:
 		month = int(str_date[0])
 		day = int(str_date[1])
 
-		result_list.append(str_arr[0] + ',' + date_list[date(year, month, day).weekday()] + ' ' + str(str_arr[2]) + ',' + str(str_arr[3].strip()))
+		result_list.append(str_arr[0].strip() + ',' + date_list[date(year, month, day).weekday()].strip() + ' ' + str(str_arr[2].strip()) + ',' + str(str_arr[3].strip()))
 	
-	with open(output_file, 'w') as of:
+	with open(output_file, 'wt') as of:
 		for element in result_list:
 			of.write(element + "\n")

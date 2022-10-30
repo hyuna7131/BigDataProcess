@@ -20,6 +20,6 @@ with open(input_file, "rt") as f:
 				
 	genre = genre_dict.keys()
 	count = genre_dict.values()
-	with open(output_file, 'w') as of:
+	with open(output_file, 'wt') as of:
 		for key, value in zip(genre, count):		
 			of.write(key + " " + str(value) + "\n")
