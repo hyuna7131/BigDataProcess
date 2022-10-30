@@ -9,7 +9,11 @@ genre_dict = dict()
 
 with open(input_file, "rt") as f:	
 	for line in f:
-		str_arr = line.split('::')
+		if '::' in line:
+			str_arr = line.split('::')
+		else:
+			str_arr = line.split(',')
+	
 		str_arr2 = str_arr[2].split('|')
 		
 		for element in str_arr2:
