@@ -9,21 +9,19 @@ genre_dict = dict()
 
 with open(input_file, "rt") as f:	
 	for line in f:
-		if '::' in line:
-			str_arr = line.split('::')
-		else:
-			str_arr = line.split(',')
-	
-		str_arr2 = str_arr[2].split('|')
+		str_arr = line.split('::')
+		str_arr[2] = str_arr[2].strip()
 		
+		str_arr2 = str_arr[2].split('|')
+
 		for element in str_arr2:
 			if element not in genre_dict:
-				genre_dict[element.strip()] = 1
+				genre_dict[element] = 1
 			else:
-				genre_dict[element.strip()] += 1
-				
-	genre = genre_dict.keys()
-	count = genre_dict.values()
-	with open(output_file, 'wt') as of:
-		for key, value in zip(genre, count):		
-			of.write(key + " " + str(value) + "\n")
+				genre_dict[element] += 1
+		
+genre = genre_dict.keys()
+count = genre_dict.values()
+with open(output_file, 'wt') as of:
+	for key, value in zip(genre, count):		
+		of.write(key + " " + str(value) + "\n")
