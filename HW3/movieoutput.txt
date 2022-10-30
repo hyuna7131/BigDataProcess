@@ -1,0 +1,13 @@
+Animation 2
+Children's 2
+Comedy 2
+Adventure 6
+Fantasy 1
+Romance 2
+Drama 1
+Action 2
+Crime 2
+Thriller 1
+Horror 1
+Sci-Fi 1
+Documentary 1
