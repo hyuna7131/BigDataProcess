@@ -10,16 +10,18 @@ date_list = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
 result_list = []
 
 with open(input_file, 'rt') as f:
-	for line in f:
+	for line in f:	
 		str_arr = line.split(',')
-
+		
 		str_date = str_arr[1].split('/')
 		year = int(str_date[2])
 		month = int(str_date[0])
 		day = int(str_date[1])
 
 		result_list.append(str_arr[0].strip() + ',' + date_list[date(year, month, day).weekday()].strip() + ' ' + str(str_arr[2].strip()) + ',' + str(str_arr[3].strip()))
+		
+	result_sort = sorted(result_list)
 	
 	with open(output_file, 'wt') as of:
-		for element in result_list:
+		for element in result_sort:
 			of.write(element + "\n")
