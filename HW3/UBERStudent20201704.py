@@ -32,9 +32,6 @@ with open(input_file, 'rt') as f:
 					result_dic[region_day][0] += int(str_arr[2])
 					result_dic[region_day][1] += int(str_arr[3])
 		
-	##key = result_dic.keys()
-	##a = list(result_dic.)
-	##value = result_dic.items()
 	with open(output_file, 'wt') as of:
 		for key1, value1 in result_dic.items():
 			of.write(key1 + " " + str(value1[0]) + ',' + str(value1[1]) + "\n")
