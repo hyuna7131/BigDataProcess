@@ -23,20 +23,18 @@ with open(input_file, 'rt') as f:
 		
 		region_day = str_arr[0]+','+week_num
 		
-		value = []
 		
 		if region_day not in result_dic:
-			value.append(int(str_arr[2]))
-			value.append(int(str_arr[3]))
-			result_dic[region_day] = value
+			result_dic[region_day] = [int(str_arr[2]), int(str_arr[3])]
 		else:
 			for i in result_dic:
 				if i == region_day:
 					result_dic[region_day][0] += int(str_arr[2])
 					result_dic[region_day][1] += int(str_arr[3])
 		
-	key = result_dic.keys()
-	value = result_dic.values()
+	##key = result_dic.keys()
+	##a = list(result_dic.)
+	##value = result_dic.items()
 	with open(output_file, 'wt') as of:
-		for key1, value1 in zip(key, value):
-			of.write(key1 + " " + str(value1) + "\n")
+		for key1, value1 in result_dic.items():
+			of.write(key1 + " " + str(value1[0]) + ',' + str(value1[1]) + "\n")
