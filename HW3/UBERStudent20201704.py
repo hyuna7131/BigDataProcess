@@ -18,11 +18,9 @@ with open(input_file, 'rt') as f:
 		year = int(str_date[2])
 		month = int(str_date[0])
 		day = int(str_date[1])
-
 		week_num = date_list[date(year, month, day).weekday()]
 		
 		region_day = str_arr[0]+','+week_num
-		
 		
 		if region_day not in result_dic:
 			result_dic[region_day] = [int(str_arr[2]), int(str_arr[3])]
