@@ -7,19 +7,36 @@ output_file = sys.argv[2]
 from datetime import date
 
 date_list = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
-result_list = []
+result_dic = dict()
 
 with open(input_file, 'rt') as f:
 	for line in f:	
 		str_arr = line.split(',')
+		str_arr[3] = str_arr[3].strip()
 		
 		str_date = str_arr[1].split('/')
 		year = int(str_date[2])
 		month = int(str_date[0])
 		day = int(str_date[1])
 
-		result_list.append(str_arr[0].strip() + ',' + date_list[date(year, month, day).weekday()].strip() + ' ' + str(str_arr[2].strip()) + ',' + str(str_arr[3].strip()))
-	
+		week_num = date_list[date(year, month, day).weekday()]
+		
+		region_day = str_arr[0]+','+week_num
+		
+		value = []
+		
+		if region_day not in result_dic:
+			value.append(int(str_arr[2]))
+			value.append(int(str_arr[3]))
+			result_dic[region_day] = value
+		else:
+			for i in result_dic:
+				if i == region_day:
+					result_dic[region_day][0] += int(str_arr[2])
+					result_dic[region_day][1] += int(str_arr[3])
+		
+	key = result_dic.keys()
+	value = result_dic.values()
 	with open(output_file, 'wt') as of:
-		for element in result_list:
-			of.write(element + "\n")
+		for key1, value1 in zip(key, value):
+			of.write(key1 + " " + str(value1) + "\n")
